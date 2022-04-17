@@ -2,14 +2,25 @@
 import { AppBar, Box, Container, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from 'react';
-import { InfoNotification } from '../InfoNotification';
+import { ShoppingCart } from '../ShoppingCart';
 
 export const Header = () => {
-    const [openNotification, setOpenNotification] = useState(false);
+    const [cartOpened, setCartOpened] = useState(false);
 
-    const openShoppingCart = () => {
-        setOpenNotification(true);
-    }
+    const toggleCart =
+        (open: boolean) =>
+            (event: React.KeyboardEvent | React.MouseEvent) => {
+                if (
+                    event &&
+                    event.type === 'keydown' &&
+                    ((event as React.KeyboardEvent).key === 'Tab' ||
+                        (event as React.KeyboardEvent).key === 'Shift')
+                ) {
+                    return;
+                }
+
+                setCartOpened(open);
+            };
 
     return (
         <Box sx={{ pb: "2rem" }}>
@@ -28,18 +39,19 @@ export const Header = () => {
 
                         <Box>
                             <Tooltip title="Open Cart">
-                                <IconButton onClick={openShoppingCart} aria-label="shopping cart" color="inherit">
+                                <IconButton onClick={toggleCart(true)} aria-label="shopping cart" color="inherit">
                                     <ShoppingCartIcon sx={{ p: 0 }} />
                                 </IconButton>
                             </Tooltip>
                         </Box>
                     </Toolbar>
                 </Container>
-
-            <InfoNotification message="Not implemented yet!" open={openNotification} setOpen={setOpenNotification}/>
             </AppBar>
+            <ShoppingCart cartOpened={cartOpened} toggleCart={toggleCart} />
         </Box>
     );
 }
+
+
 
 

@@ -34,7 +34,7 @@ export const InfoNotification = ({ open, setOpen, message}: InfoNotificationProp
     return (
         <Snackbar
             open={open}
-            autoHideDuration={5000}
+            autoHideDuration={3000}
             onClose={handleClose}
             message={message}
             action={action}
