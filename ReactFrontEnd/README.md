@@ -1,7 +1,7 @@
 # Distributed Programming FrontEnd Demo
 
 React application that fetches a list of products from the backend and allows the creation and deletion of individual products.    
-Shopping basket is a feature that is not implemented.
+Products can be added to a persistent shopping cart and then an order can be sent containing the cart's contents.
 
 ## Getting started
 
@@ -11,7 +11,7 @@ To install the component library, you have to run `npm install @mui/material @mu
 1. Helpful guide on using State: https://reactjs.org/docs/hooks-state.html
 1. Using hooks (esp. useEffect): https://reactjs.org/docs/hooks-effect.html
 1. Defining and passing component props in React: https://www.pluralsight.com/guides/defining-props-in-react-function-component-with-typescript
-1. Connect the application to the backend running at http://localhost:8080/
+1. Connect the application to the backend services running at http://localhost:8080/ (Java) and http://localhost:8080/ (Node)
 1. Sample images taken from: https://www.shutterstock.com/
 
 ## Running the application
